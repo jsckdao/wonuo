@@ -1,0 +1,19 @@
+{
+  "name": "Wonuo",
+  "description": "给妹纸写的淘宝抢单插件  <(▰˘◡˘▰)>",
+  "version": "0.0.3",
+  "permissions": [
+    "proxy", "tabs", "contextMenus", "webRequest", "webRequestBlocking",
+    "webNavigation", "unlimitedStorage", "notifications",
+    "http://*.taobao.com/*", "https://*.taobao.com/*"
+  ],
+  "icons": {
+    "48": "img/axe_48.ico"
+  },
+  "content_scripts": [{
+    "matches": ["https://cart.taobao.com/*"],
+    "css": ["css/cart.css"],
+    "js": ["lib/jquery.js", "src/cart.js"]
+  }],
+  "manifest_version": 2
+}

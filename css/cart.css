@@ -1,0 +1,58 @@
+
+.wonuo-swindow {
+    position: fixed;
+    right: 50px;
+    bottom: 10px;
+    background: rgba(22, 22, 22, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 99999;
+    color: #fff;
+}
+
+.wonuo-swindow .close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+.wonuo-swindow a,
+.wonuo-swindow a:hover {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.wonuo-panel {
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.line {
+    border-bottom: #fff 1px solid;
+}
+
+
+.wonuo-panel .empty {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.wonuo-panel h2 {
+    margin: 5px 0px;
+    font-size: 16px;
+}
+
+
+
+.wonuo-panel input[type=number] {
+    width: 30px;
+    padding: 3px;
+    margin: 0px 3px;
+    color: white;
+    background: none;
+    border: solid 1px #fff;
+}
