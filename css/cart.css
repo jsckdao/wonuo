@@ -26,6 +26,12 @@
     font-weight: bold;
 }
 
+.wonuo-swindow .display {
+    text-align: center;
+    padding: 20px 5px;
+    font-size: 14px;
+}
+
 .wonuo-panel {
     width: 300px;
     padding-bottom: 10px;
@@ -45,8 +51,6 @@
     margin: 5px 0px;
     font-size: 16px;
 }
-
-
 
 .wonuo-panel input[type=number] {
     width: 30px;
