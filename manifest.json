@@ -4,16 +4,21 @@
   "version": "0.0.3",
   "permissions": [
     "proxy", "tabs", "contextMenus", "webRequest", "webRequestBlocking",
-    "webNavigation", "unlimitedStorage", "notifications",
+    "webNavigation", "storage", "notifications", "background",
     "http://*.taobao.com/*", "https://*.taobao.com/*"
   ],
   "icons": {
     "48": "img/axe_48.ico"
   },
+
+
   "content_scripts": [{
     "matches": ["https://cart.taobao.com/*"],
     "css": ["css/cart.css"],
-    "js": ["lib/jquery.js", "src/cart.js"]
+    "js": ["lib/jquery.js", "src/common.js", "src/cart.js"]
+  }, {
+    "matches": ["https://buy.taobao.com/auction/order/*"],
+    "js": ["lib/jquery.js", "src/common.js", "src/order.js"]
   }],
   "manifest_version": 2
 }

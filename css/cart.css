@@ -52,11 +52,32 @@
     font-size: 16px;
 }
 
-.wonuo-panel input[type=number] {
-    width: 30px;
+.input {
     padding: 3px;
-    margin: 0px 3px;
     color: white;
     background: none;
     border: solid 1px #fff;
+    border-radius: 5px;
+}
+
+.wonuo-panel input[type=number] {
+    width: 30px;
+    margin: 0px 3px;
+}
+
+.wonuo-remark {
+    position: absolute;
+    color: #fff;
+    background: rgba(22, 22, 22, 0.8);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.wonuo-remark input[type=text] {
+    width: 350px;
+}
+
+.wonuo-remark label {
+    font-size: 14px;
+    margin: 0px 10px;
 }
