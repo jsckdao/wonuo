@@ -11,7 +11,7 @@ $(function() {
     '<input name="hour" type="number" class="input" min="0" max="23" value="22" />时' +
     '<input name="minute" type="number" class="input" min="0" max="59" value="0" />分' +
     '<input name="second" type="number" class="input" min="0" max="59" value="0" />秒' +
-    '</div><div class="display"></div>' +
+    '</div><div class="display">双十一快到了, 插件君表示压力好大... ( >﹏< )</div>' +
     '</div>';
 
   var storage = window.sessionStorage;
@@ -221,7 +221,7 @@ $(function() {
         d += 24 * 3600 * 1000;
       }
       // console.log('time:', time);
-      this.displayStatus('插件君已经打起来十二分精神! (^0_0^)');
+      this.displayStatus('插件君已经打起了十二分精神! (^0_0^)');
       //
       this._timer_handle = setTimeout(function() {
         self.submit();

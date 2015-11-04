@@ -33,6 +33,15 @@ function doClick(fireOnThis) {
   fireOnThis.dispatchEvent(evObj);
 }
 
+function doFocus(fireOnThis) {
+  if (typeof fireOnThis == 'string') {
+    fireOnThis = document.getElementById(fireOnThis);
+  }
+  var evObj = document.createEvent('HTMLEvents');
+  evObj.initEvent('focus', false, false);
+  fireOnThis.dispatchEvent(evObj);
+}
+
 /**
  *
  */

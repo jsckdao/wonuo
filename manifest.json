@@ -11,6 +11,9 @@
     "48": "img/axe_48.ico"
   },
 
+  "background": {
+    "scripts": ["src/background.js"]
+  },
 
   "content_scripts": [{
     "matches": ["https://cart.taobao.com/*"],

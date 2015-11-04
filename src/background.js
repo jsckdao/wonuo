@@ -1,31 +1,19 @@
 /**
  * Created by yonixee on 15-11-3.
  */
-(function() {
-  var _data = [{
-    id: '646877444',
-    remark: '这是化妆品店的留言'
-  }, {
-    id: '78997203',
-    remark: '这是皮具店的暗号'
-  }];
 
-  var lop = lazyOperate(20000);
-
-  setCallHandle('putData', function(e) {
-    _data = e.message;
-    //op.run(function() {
-    //  _data = null;
-    //});
-  });
-
-
-  setCallHandle('getData', function(e) {
-    return _data;
-  });
-
-  setCallHandle('clearData', function(e) {
-    _data = null;
-  });
-
-})();
+var _start_time = null;
+chrome.storage.onChanged.addListener(function(items) {
+  if (items.shops) {
+    if (items.shops.newValue) {
+      _start_time = new Date().getTime();
+      console.log('start submit: ', _start_time);
+    }
+    else if (_start_time) {
+      var end = new Date().getTime();
+      console.log('end submit: ', end);
+      console.log('use time: ', end - _start_time);
+      _start_time = null;
+    }
+  }
+});
