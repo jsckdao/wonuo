@@ -1,7 +1,7 @@
 {
   "name": "Wonuo",
   "description": "给妹纸写的淘宝抢单插件.... <(▰˘◡˘▰)>",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "update_url": "https://rawgit.com/jsckdao/wonuo/master/update.xml",
   "permissions": [
     "proxy", "tabs", "contextMenus", "webRequest", "webRequestBlocking",
