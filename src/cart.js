@@ -84,7 +84,7 @@ $(function() {
       // 移除接头暗号输入框
       for (var k in this._shops) {
         if (this._shops.hasOwnProperty(k)) {
-          this._shops.frame.remove();
+          this._shops[k].frame.remove();
         }
       }
     },
@@ -315,10 +315,14 @@ $(function() {
     init: function() {
       this._window = $('<div class="wonuo-swindow" />').appendTo(document.body);
       this.disable();
-      console.log('plugin init .....')
     }
   };
 
 
   settingWindow.init();
+
+
+  $(window).bind('unload', function() {
+    console.log('unload');
+  });
 });

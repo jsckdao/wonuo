@@ -29,16 +29,24 @@ function doClick(fireOnThis) {
     fireOnThis = document.getElementById(fireOnThis);
   }
   var evObj = document.createEvent('MouseEvents');
-  evObj.initMouseEvent( 'click', true, true, window, 1, 12, 345, 7, 220, false, false, true, false, 0, null );
+  evObj.initMouseEvent( 'click', true, false, window, 1, 622, 545, 683, 520, false, false, true, false, 0, null );
   fireOnThis.dispatchEvent(evObj);
 }
 
 function doFocus(fireOnThis) {
+  doEvent('focus', fireOnThis);
+}
+
+function doBlur(fireOnThis) {
+  doEvent('blur', fireOnThis);
+}
+
+function doEvent(name, fireOnThis) {
   if (typeof fireOnThis == 'string') {
     fireOnThis = document.getElementById(fireOnThis);
   }
   var evObj = document.createEvent('HTMLEvents');
-  evObj.initEvent('focus', false, false);
+  evObj.initEvent(name, false, false);
   fireOnThis.dispatchEvent(evObj);
 }
 

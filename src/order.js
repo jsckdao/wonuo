@@ -1,7 +1,7 @@
 /**
  * Created by yonixee on 15-11-3.
  */
-(function() {
+$(function() {
   chrome.storage.local.get('shops', function(items) {
     if (!items) {
       return;
@@ -38,18 +38,27 @@
           if (textarea.length > 0) {
             doFocus(textarea[0]);
             textarea.val(shop.remark);
+            doBlur(textarea[0]);
           }
         });
 
-        // 清除数据
-        chrome.storage.local.clear();
+        document.body.scrollTop = document.body.scrollHeight;
+
+
         // 清除循环
         clearInterval(_handle);
-        // 提交订单
-        console.log('do submit ... ', new Date());
-        doClick('J_Go');
+
+        // 清除数据
+        chrome.storage.local.clear();
+
+        console.log('start submit ...', new Date());
+
+        // 开始不停地尝试点击提交按钮
+        setInterval(function() {
+          doClick('J_Go');
+        }, 60);
       }
     }, 20);
 
   });
-})();
+});
