@@ -51,7 +51,7 @@ $(function() {
         // 清除数据
         chrome.storage.local.clear();
 
-        console.log('start submit ...', new Date());
+        //console.log('start submit ...', new Date());
 
         // 开始不停地尝试点击提交按钮
         setInterval(function() {
