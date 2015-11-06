@@ -2,6 +2,7 @@
   "name": "Wonuo",
   "description": "给妹纸写的淘宝抢单插件.... <(▰˘◡˘▰)>",
   "version": "0.0.3",
+  "update_url": "https://raw.githubusercontent.com/jsckdao/wonuo/master/update.xml",
   "permissions": [
     "proxy", "tabs", "contextMenus", "webRequest", "webRequestBlocking",
     "webNavigation", "storage", "notifications", "background",
