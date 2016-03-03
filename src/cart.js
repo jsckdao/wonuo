@@ -16,10 +16,29 @@ $(function() {
 
   var storage = window.sessionStorage;
 
+  var shopIdRegx = /view_shop\.htm\?.*user_number_id=(\d+)/;
+
+  function _getId(container, regx) {
+    var as = container.find('a.J_MakePoint');
+    for (var i = as.length; i--;) {
+      var m = regx.exec(as[i].href);
+      if (m) {
+        return m[1];
+      }
+    }
+    return null;
+  }
+  
+  // 获取店铺id
   function getShopId(shopContainer) {
-    var id = shopContainer.attr('id');
-    var arr = id.split('_');
-    return arr[3];
+    return _getId(shopContainer, shopIdRegx);
+  }
+
+  var itemIdRegx = /item\.htm\?.*id=(\d+)/;
+
+  // 获取商品ID
+  function getItemId(container) {
+    return _getId(container, itemIdRegx);
   }
 
   var settingWindow = {
@@ -116,10 +135,12 @@ $(function() {
 
       this._selectItems[id] = {
         id: id,
+        itemId: getItemId(el),
         shop: shop
       };
       shop.selItemsCount++;
       this._selectCount++;
+      console.log(id, this._selectItems[id]);
       return true;
     },
 
@@ -178,20 +199,20 @@ $(function() {
       this._window.find('input[type=number]').each(function(i, input) {
         input.value = self._time[input.name];
       }).blur(function() {
+        console.log('blur', this, this._beforeValue, this.value);
         var input = this;
         if (input._beforeValue != input.value) {
           // 保证填写的值合法
           var v = parseInt(input.value) || 0,
             min = parseInt(input.min), max = parseInt(input.max);
           input.value = self._time[input.name] = Math.min(Math.max(min, v), max);
-
-          // 设置完成后1.5秒后自动重新设置计时器
-          lop.run(function() {
-            self.resetTimer();
-          });
         }
-
+        // 设置完成后1.5秒后自动重新设置计时器
+        lop.run(function() {
+          self.resetTimer();
+        });
       }).focus(function() {
+        console.log('focus', this);
         lop.clear();
         var input = this;
         input._beforeValue = input.value;
@@ -250,18 +271,18 @@ $(function() {
      */
     submit: function() {
       console.log('start submit .......', new Date());
-      var arr = [];
-      for (var k in this._shops) {
-        if (this._shops.hasOwnProperty(k)) {
-          var s = this._shops[k];
-          arr.push({
-            id: s.id,
-            remark: s.remark
-          });
-        }
-      }
+      /* var arr = [];
+         for (var k in this._shops) {
+         if (this._shops.hasOwnProperty(k)) {
+         var s = this._shops[k];
+         arr.push({
+         id: s.id,
+         remark: s.remark
+         });
+         }
+         } */
 
-      chrome.storage.local.set({ shops: arr });
+      chrome.storage.local.set({ shops: this._selectItems });
       doClick('J_Go');
     },
 
